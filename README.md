@@ -1,6 +1,6 @@
 # 🌐 Personal Portfolio Website
 
-[![Live Demo](https://img.shields.io/badge/live-demo-brightgreen?style=for-the-badge&logo=vercel)](https://your-portfolio-demo-url.com)
+[![Live Demo](https://img.shields.io/badge/live-demo-brightgreen?style=for-the-badge&logo=vercel)](https://caspian1988.github.io/personal_portfolio_website/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A clean, responsive, and modern developer portfolio built to showcase personal projects, technical skills, and software engineering experience.
@@ -9,7 +9,9 @@ A clean, responsive, and modern developer portfolio built to showcase personal p
 
 ## 🚀 Live Demo
 
-Check out the live interactive website here: **[https://your-portfolio-demo-url.com](https://Caspian1988/personal_portfolio_website)**
+Check out the live interactive website here: **[https://caspian1988.github.io/personal_portfolio_website/](https://caspian1988.github.io/personal_portfolio_website/)**
+
+*(Note: Replace the link above if your project is deployed on Vercel, Netlify, or another host!)*
 
 ---
 
@@ -25,9 +27,9 @@ Check out the live interactive website here: **[https://your-portfolio-demo-url.
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript (or React / Next.js)
-- **Styling:** Custom CSS / Tailwind CSS / Bootstrap
-- **Deployment:** Vercel / GitHub Pages / Netlify
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Styling:** Custom CSS
+- **Deployment:** GitHub Pages / Vercel
 
 ---
 
@@ -37,5 +39,5 @@ To run this repository locally on your machine, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/your-portfolio-repo.git](https://github.com/your-username/your-portfolio-repo.git)
-   cd your-portfolio-repo
+   git clone [https://github.com/Caspian1988/personal_portfolio_website.git](https://github.com/Caspian1988/personal_portfolio_website.git)
+   cd personal_portfolio_website
