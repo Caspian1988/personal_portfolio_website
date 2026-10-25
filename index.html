@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramin Baghirov | Transit Operations & Applied AI Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for sleek icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter and JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#111827',
+                        cardHover: '#1f2937',
+                        accentCyan: '#06b6d4',
+                        accentEmerald: '#10b981',
+                        slateText: '#94a3b8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar styling for high visual polish */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        /* Subtle glow effects */
+        .glow-accent {
+            box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.3);
+        }
+        .glow-border {
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+        .glow-border:hover {
+            border: 1px solid rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 15px -3px rgba(6, 182, 212, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-accentCyan selection:text-darkBg min-h-screen">
+
+    <!-- Mobile Navigation Toggle -->
+    <div class="lg:hidden fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800 p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <span class="w-3 h-3 rounded-full bg-accentEmerald animate-pulse"></span>
+            <span class="font-mono font-bold text-sm tracking-wider">RAMIN BAGHIROV</span>
+        </div>
+        <button id="mobile-menu-btn" class="text-slateText hover:text-white focus:outline-none text-xl">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-0">
+        <div class="flex flex-col lg:flex-row min-h-screen gap-8 lg:gap-16">
+
+            <!-- LEFT SIDEBAR: Identity, Bio Summary, Nav & Socials (Fixed on Desktop) -->
+            <aside id="sidebar" class="hidden lg:flex lg:w-1/3 flex-col justify-between py-12 lg:sticky lg:top-0 lg:h-screen border-r border-gray-800/60 pr-8">
+                <div>
+                    <!-- Avatar Photo Frame -->
+                    <div class="relative w-32 h-32 mb-6 group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-accentCyan to-accentEmerald rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+                        <img id="avatar-image" src="https://avatars.githubusercontent.com/u/260244396?v=4"
+                             alt="Ramin Baghirov" 
+                             onerror="this.src='https://placehold.co/128x128/111827/06b6d4?text=RB'"
+                             class="relative rounded-full w-32 h-32 object-cover border-2 border-darkBg shadow-2xl">
+                        <label for="avatar-upload" class="absolute bottom-1 right-1 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-darkBg bg-accentCyan text-darkBg shadow-lg transition-colors hover:bg-cyan-300" title="Upload a profile photo">
+                            <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                            <span class="sr-only">Upload a profile photo</span>
+                        </label>
+                        <input id="avatar-upload" type="file" accept="image/*" class="sr-only">
+                        <p id="avatar-upload-status" class="mt-2 min-h-4 text-xs text-slateText" aria-live="polite"></p>
+                    </div>
+
+                    <!-- Identity Header -->
+                    <h1 class="text-3xl font-bold tracking-tight text-white mb-2">Ramin Baghirov</h1>
+                    <h2 class="text-sm font-mono text-accentCyan mb-4 leading-relaxed">
+                        Transit Operations Professional &amp; Applied Front-End / AI Developer
+                    </h2>
+                    
+                    <!-- Availability Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accentEmerald/10 border border-accentEmerald/30 text-accentEmerald text-xs font-mono mb-8">
+                        <span class="w-2 h-2 rounded-full bg-accentEmerald animate-ping"></span>
+                        Available for Software &amp; AI Roles
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <nav class="space-y-3 font-mono text-xs tracking-wider text-slateText">
+                        <a href="#bio" class="nav-link flex items-center gap-3 hover:text-white transition-colors py-1 group">
+                            <span class="text-accentCyan group-hover:translate-x-1 transition-transform">//</span> BIO &amp; SYSTEMS PHILOSOPHY
+                        </a>
+                        <a href="#portfolio" class="nav-link flex items-center gap-3 hover:text-white transition-colors py-1 group">
+                            <span class="text-accentCyan group-hover:translate-x-1 transition-transform">//</span> FEATURED PORTFOLIO
+                        </a>
+                        <a href="#essays" class="nav-link flex items-center gap-3 hover:text-white transition-colors py-1 group">
+                            <span class="text-accentCyan group-hover:translate-x-1 transition-transform">//</span> RESEARCH &amp; ESSAYS
+                        </a>
+                        <a href="#contact" class="nav-link flex items-center gap-3 hover:text-white transition-colors py-1 group">
+                            <span class="text-accentCyan group-hover:translate-x-1 transition-transform">//</span> CONTACT &amp; DOSSIER
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Footer Social Links -->
+                <div class="pt-8 border-t border-gray-800/80 flex items-center justify-between text-slateText">
+                    <div class="flex items-center space-x-5 text-lg">
+                        <a href="https://github.com/Caspian1988" target="_blank" rel="noopener" class="hover:text-accentCyan transition-colors" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ramin-baghirov-7451b5445/" target="_blank" rel="noopener" class="hover:text-accentCyan transition-colors" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ramin.baghirov.dev@gmail.com" class="hover:text-accentCyan transition-colors" title="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                    <span class="font-mono text-[10px] text-gray-500">MONTGOMERY CO, MD</span>
+                </div>
+            </aside>
+
+            <!-- RIGHT MAIN CONTENT AREA: Scrollable Sections -->
+            <main class="lg:w-2/3 py-8 lg:py-12 space-y-20">
+
+                <!-- SECTION 1: BIO & PHILOSOPHY -->
+                <section id="bio" class="scroll-mt-20">
+                    <div class="font-mono text-xs text-accentCyan tracking-widest uppercase mb-2">// 01. ABOUT &amp; PERSPECTIVE</div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Bridging Real-World Systems with Applied AI Engineering</h3>
+                    
+                    <div class="space-y-4 text-slateText leading-relaxed text-sm">
+                        <p>
+                            I am a transit system operator and software developer based in Maryland. Every day, I operate transit buses through complex urban environments, navigating real-time traffic dynamics, unpredictability, and safety-critical human factors. 
+                        </p>
+                        <p>
+                            My engineering approach is grounded in **real-world edge cases**. While many engineers train machine learning models on clean, synthetic datasets, I build client-side vision heuristics, browser-based physical simulations, and computer vision systems designed to handle the messy reality of physical deployment.
+                        </p>
+                        <p>
+                            Holding a Master’s degree in History from Baku State University, I view modern software through a lens of **systems analysis and human-machine interaction (HCI)**. History teaches us that system failures—whether in aviation, transit networks, or automated software—rarely stem from raw algorithmic errors alone, but from broken miscommunication between human operators and machine interfaces.
+                        </p>
+                    </div>
+
+                    <!-- Key Skills Matrix -->
+                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+                        <div class="p-3 rounded-lg bg-cardBg border border-gray-800">
+                            <span class="text-accentCyan block font-bold mb-1">Frontend Stack</span>
+                            HTML5, CSS3, JS (ES6+), Tailwind
+                        </div>
+                        <div class="p-3 rounded-lg bg-cardBg border border-gray-800">
+                            <span class="text-accentEmerald block font-bold mb-1">AI &amp; Vision</span>
+                            TensorFlow.js, COCO-SSD, Spatial Heuristics
+                        </div>
+                        <div class="p-3 rounded-lg bg-cardBg border border-gray-800">
+                            <span class="text-accentCyan block font-bold mb-1">Browser APIs</span>
+                            Canvas 2D, Web Audio API, Web Speech
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: PORTFOLIO & PROJECTS -->
+                <section id="portfolio" class="scroll-mt-20">
+                    <div class="font-mono text-xs text-accentCyan tracking-widest uppercase mb-2">// 02. FEATURED SOFTWARE PROJECTS</div>
+                    <h3 class="text-2xl font-bold text-white mb-8">Selected Applications &amp; Prototypes</h3>
+
+                    <div class="space-y-8">
+
+                        <!-- PROJECT CARD 1: Terminator Excalibur -->
+                        <div class="p-6 rounded-xl bg-cardBg glow-border transition-all duration-300 relative group">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                                <div>
+                                    <span class="font-mono text-xs text-accentEmerald">// COMPUTER VISION HUD</span>
+                                    <h4 class="text-xl font-bold text-white mt-1 group-hover:text-accentCyan transition-colors">
+                                        Terminator Excalibur — AR HUD Engine
+                                    </h4>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <a href="https://github.com/Caspian1988/terminator-excalibur" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-md bg-gray-800 hover:bg-gray-700 text-xs font-mono text-white transition-colors flex items-center gap-2">
+                                        <i class="fa-brands fa-github"></i> Repo
+                                    </a>
+                                    <a href="https://caspian1988.github.io/terminator-excalibur/" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-md bg-accentCyan hover:bg-cyan-500 text-xs font-mono text-darkBg font-bold transition-colors flex items-center gap-1">
+                                        Launch App <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="text-slateText text-sm mb-4 leading-relaxed">
+                                A high-performance web-based Augmented Reality HUD running client-side object detection in real-time. Features custom spatial-stability tracking and heuristic filtering engines designed to eliminate indoor geometric hallucinations (such as reclassifying static bedside lamps or ceiling fixtures).
+                            </p>
+                            <div class="p-3 rounded-md bg-darkBg/60 border border-gray-800 text-xs font-mono text-slateText mb-4">
+                                <span class="text-accentCyan">Highlight:</span> Includes real-time Web Audio frequency sweeps, Web Speech synthesizer feedback, and custom heuristic algorithms to filter false positive classifications.
+                            </div>
+                            <div class="flex flex-wrap gap-2 font-mono text-[11px] text-accentCyan">
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">TensorFlow.js</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">COCO-SSD</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">Web Audio API</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">Canvas 2D</span>
+                            </div>
+                        </div>
+
+                        <!-- PROJECT CARD 2: Bus Simulation Game -->
+                        <div class="p-6 rounded-xl bg-cardBg glow-border transition-all duration-300 relative group">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                                <div>
+                                    <span class="font-mono text-xs text-accentCyan">// PHYSICS &amp; LOGIC SIMULATION</span>
+                                    <h4 class="text-xl font-bold text-white mt-1 group-hover:text-accentCyan transition-colors">
+                                        Interactive Transit Route Simulator
+                                    </h4>
+                                </div>
+                                <a href="https://github.com/caspian1988" target="_blank" class="px-3 py-1.5 rounded-md bg-gray-800 hover:bg-gray-700 text-xs font-mono text-white transition-colors flex items-center gap-2">
+                                    <i class="fa-brands fa-github"></i> View Source
+                                </a>
+                            </div>
+                            <p class="text-slateText text-sm mb-4 leading-relaxed">
+                                A lightweight HTML5/JS canvas game and simulation modeling urban transit route physics. Integrates traffic light state machines, pedestrian crosswalk logic, schedule adherence algorithms, and vehicle momentum physics.
+                            </p>
+                            <div class="flex flex-wrap gap-2 font-mono text-[11px] text-accentCyan">
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">JavaScript ES6</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">HTML5 Canvas</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">State Machine</span>
+                            </div>
+                        </div>
+
+                        <!-- PROJECT CARD 3: Gaze Pilot Safety -->
+                        <div class="p-6 rounded-xl bg-cardBg glow-border transition-all duration-300 relative group">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                                <div>
+                                    <span class="font-mono text-xs text-accentEmerald">// SAFETY &amp; BIOMETRICS</span>
+                                    <h4 class="text-xl font-bold text-white mt-1 group-hover:text-accentCyan transition-colors">
+                                        Gaze Pilot safety Prototype
+                                    </h4>
+                                </div>
+                                <a href="https://github.com/Caspian1988/gaze_pilot_prototype-" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-md bg-gray-800 hover:bg-gray-700 text-xs font-mono text-white transition-colors flex items-center gap-2">
+                                    <i class="fa-brands fa-github"></i> View Prototype
+                                </a>
+                            </div>
+                            <p class="text-slateText text-sm mb-4 leading-relaxed">
+                                A browser-based safety monitoring tool using face landmark tracking to evaluate driver eye blink frequencies and head inclination angles for fatigue detection.
+                            </p>
+                            <div class="flex flex-wrap gap-2 font-mono text-[11px] text-accentCyan">
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">MediaPipe</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">Computer Vision</span>
+                                <span class="px-2 py-1 rounded bg-darkBg border border-gray-800">Safety Tech</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 3: ESSAYS & RESEARCH -->
+                <section id="essays" class="scroll-mt-20">
+                    <div class="font-mono text-xs text-accentCyan tracking-widest uppercase mb-2">// 03. WRITING &amp; RESEARCH</div>
+                    <h3 class="text-2xl font-bold text-white mb-8">Systems Analysis &amp; HCI Case Studies</h3>
+
+                    <div class="research-container">
+                        <article class="essay-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 24px; margin-bottom: 20px;">
+                            <div class="essay-meta" style="color: #38bdf8; font-family: monospace; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 8px;">
+                                ESSAY // COMPUTER VISION &amp; SPATIAL LOGIC
+                            </div>
+                            <h4 style="color: #f8fafc; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">
+                                The Tactical Donut &amp; AI Heuristics: Why Computer Vision Models Fail in Domestic Environments
+                            </h4>
+                            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                                Exploring how lightweight neural networks suffer from geometric hallucinations in indoor contexts—and why post-processing spatial heuristic engines are essential for real-world devices.
+                            </p>
+                            <a href="tactical-donut.html" class="read-link" style="color: #38bdf8; text-decoration: none; font-weight: 500; font-size: 0.9rem;">Read Full Essay &rarr;</a>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 4: CONTACT & FOOTER -->
+                <section id="contact" class="scroll-mt-20 pb-16">
+                    <div class="font-mono text-xs text-accentCyan tracking-widest uppercase mb-2">// 04. GET IN TOUCH</div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+
+                    <div class="p-8 rounded-xl bg-cardBg border border-gray-800 glow-accent">
+                        <p class="text-slateText text-sm mb-6 leading-relaxed">
+                            I am actively seeking software development and applied AI positions where real-world systems experience, interface design discipline, and client-side engineering skills add immediate value.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="mailto:ramin.baghirov.dev@gmail.com" class="px-6 py-3 rounded-lg bg-accentCyan hover:bg-cyan-500 text-darkBg font-bold text-sm font-mono transition-colors text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+                            </a>
+                            <a href="https://github.com/caspian1988" target="_blank" rel="noopener" class="px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-mono text-sm transition-colors text-center flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-github"></i> GitHub Profile
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Footer Info -->
+                    <div class="mt-12 text-center text-xs font-mono text-gray-500 border-t border-gray-800/60 pt-6">
+                        Designed &amp; Developed by Ramin Baghirov &copy; 2026. Hosted on GitHub Pages.
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Mobile Menu Handler JS -->
+    <script>
+        // Mobile Sidebar Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            if (sidebar.classList.contains('hidden')) {
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('flex', 'fixed', 'inset-0', 'z-40', 'bg-darkBg', 'p-6', 'pt-20', 'w-full');
+            } else {
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('flex', 'fixed', 'inset-0', 'z-40', 'bg-darkBg', 'p-6', 'pt-20', 'w-full');
+            }
+        });
+
+        const avatarImage = document.getElementById('avatar-image');
+        const avatarUpload = document.getElementById('avatar-upload');
+        const avatarUploadStatus = document.getElementById('avatar-upload-status');
+        try {
+            const savedAvatar = localStorage.getItem('portfolio-avatar');
+            if (savedAvatar) {
+                avatarImage.src = savedAvatar;
+            }
+        } catch (error) {
+            avatarUploadStatus.textContent = 'Photo storage is unavailable in this browser.';
+        }
+
+        avatarUpload.addEventListener('change', () => {
+            const file = avatarUpload.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                avatarUploadStatus.textContent = 'Please choose an image file.';
+                avatarUpload.value = '';
+                return;
+            }
+            if (file.size > 2 * 1024 * 1024) {
+                avatarUploadStatus.textContent = 'Please choose an image smaller than 2 MB.';
+                avatarUpload.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                if (typeof reader.result !== 'string') {
+                    avatarUploadStatus.textContent = 'Could not read that image. Please try another file.';
+                    return;
+                }
+
+                avatarImage.src = reader.result;
+                try {
+                    localStorage.setItem('portfolio-avatar', reader.result);
+                    avatarUploadStatus.textContent = 'Profile photo updated and saved in this browser.';
+                } catch (error) {
+                    avatarUploadStatus.textContent = 'Photo updated for this visit, but could not be saved in this browser.';
+                }
+            });
+            reader.addEventListener('error', () => {
+                avatarUploadStatus.textContent = 'Could not read that image. Please try another file.';
+            });
+            reader.readAsDataURL(file);
+        });
+
+        // Close mobile nav when link clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('hidden');
+                    sidebar.classList.remove('flex', 'fixed', 'inset-0', 'z-40', 'bg-darkBg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

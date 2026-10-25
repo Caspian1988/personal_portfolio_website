@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0f19">
+    <title>The Tactical Donut &amp; AI Heuristics | Ramin Baghirov</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0b0f19;
+            color: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 48px 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(24px, 5vw, 48px);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+        }
+
+        .back-link,
+        .essay-meta {
+            color: #38bdf8;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 32px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .essay-meta {
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            margin: 0 0 24px;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            line-height: 1.25;
+        }
+
+        .essay-body {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .essay-body p {
+            margin: 0 0 18px;
+        }
+
+        h2 {
+            margin: 28px 0 12px;
+            color: #cbd5e1;
+            font-size: 1.25rem;
+        }
+
+        ul {
+            margin: 0 0 18px;
+            padding-left: 24px;
+            color: #cbd5e1;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back-link" href="index.html#essays">&larr; Back to research &amp; essays</a>
+        <article>
+            <div class="essay-meta">ESSAY // COMPUTER VISION &amp; SPATIAL LOGIC</div>
+            <h1>The Tactical Donut &amp; AI Heuristics: Why Computer Vision Models Fail in Domestic Environments and How Simple Post-Processing Math Fixes Spatial Hallucinations</h1>
+
+            <div class="essay-body">
+                <p>
+                    To a high-performance computer vision model, a home is not a place of comfort; it is a chaotic theater of war against geometry. Drop a deep-learning object detector into a living room, and what a human perceives as a simple plate of pastries quickly devolves into a cascade of high-confidence hallucinations. A frosted confection sitting beside a set of keys suddenly becomes tagged as a "tactical headset" or a "geometric anomaly." These misfires are not merely random noise—they are the direct result of how AI heuristics interpret visual data, and they reveal a fundamental blind spot in modern machine learning.
+                </p>
+
+                <h2>The Anatomy of a Spatial Hallucination</h2>
+                <p>
+                    Convolutional neural networks and vision transformers are trained to recognize patterns based on abstract feature extraction: edges, textures, gradients, and relational positioning. In clinical, highly controlled testing datasets, these heuristics excel. But domestic environments are rife with unpredictable lighting, occlusions, curved reflections, and ambiguous shapes.
+                </p>
+                <p>
+                    When an AI encounters a rounded, glazed object casting a soft shadow on a kitchen counter, its feature-matching layers map those gradients against its training taxonomy. If the network has seen a high concentration of circular, high-contrast objects in industrial or tactical contexts (like dials, safety gear, or equipment housings), it latches onto those localized features. It aggressively maximizes its confidence score, completely ignoring the broader semantic context—that this object is sitting next to a coffee mug on a ceramic plate, not mounted on a tactical vest. The result is a classic AI hallucination: high technical certainty, absolute domestic absurdity.
+                </p>
+
+                <h2>The Power of Post-Processing Math</h2>
+                <p>
+                    Fixing these spatial disconnects doesn’t always require retraining massive, energy-heavy neural networks with millions of new domestic images. Often, the most elegant solution lies in deterministic post-processing math applied after the model makes its raw inference. By introducing geometric constraints, non-maximum suppression (NMS) thresholds, and contextual spatial logic, developers can act as a reality check for the model. For instance:
+                </p>
+
+                <ul>
+                    <li><strong>Proximity Heuristics:</strong> If an object classified as "military hardware" is detected within a 5-inch radius of breakfast utensils or baked goods, a simple conditional probability filter can downgrade its confidence score or flag it for re-evaluation.</li>
+                    <li><strong>Aspect Ratio &amp; Boundary Validation:</strong> Applying lightweight mathematical constraints on bounding-box aspect ratios and expected physical footprints prevents erratic, floating detections that defy gravity or standard sizing.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>
+                    The "Tactical Donut" phenomenon highlights the ongoing friction between raw pattern matching and genuine spatial understanding. As we build autonomous systems and domestic AI tools, relying solely on neural network confidence is a recipe for false alarms. By bridging deep learning with grounded, logical post-processing mathematics, we can ground these models in reality—ensuring our AI assistants see our homes for what they actually are, pastries and all.
+                </p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
