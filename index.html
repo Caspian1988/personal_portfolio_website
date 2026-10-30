@@ -335,6 +335,63 @@
                             </details>
                         </article>
 
+                        <article class="essay-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 24px; margin-bottom: 20px;">
+                            <div class="essay-meta" style="color: #38bdf8; font-family: monospace; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 8px;">
+                                ESSAY // COMPUTER VISION, FRAME RATES &amp; PHYSICS
+                            </div>
+                            <h4 style="color: #f8fafc; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px;">
+                                Mach 25 in a Bedroom: Computer Vision, Frame Rates, and the Physics of Uncalibrated Time
+                            </h4>
+                            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                                How uncalibrated distance assumptions and tiny frame-to-frame time intervals can turn a simple webcam gesture into an impossible speed reading.
+                            </p>
+                            <details style="color: #94a3b8; font-size: 0.95rem; line-height: 1.7;">
+                                <summary style="color: #38bdf8; cursor: pointer; font-weight: 500;">Read Full Essay</summary>
+                                <div style="margin-top: 16px;">
+                                    <p style="margin-bottom: 16px;">
+                                        In the realm of web-based computer vision prototypes, absolute mathematical chaos is often just a single division operation away. You set up two virtual tripwire lines across a webcam stream—Line A and Line B—set a baseline physical distance, wave your hand across the frame, and wait for the speed reading. In a perfect world, the algorithm detects a gentle 3 MPH gesture. In reality, the display flashes back with a cosmic declaration: <strong>19,480.5 MPH</strong>.
+                                    </p>
+                                    <p style="margin-bottom: 16px;">
+                                        Without breaking a sweat or leaving your chair, you have apparently shattered the sound barrier, escaped Earth’s atmosphere, and surpassed orbital velocity—all while sitting in front of VS Code.
+                                    </p>
+
+                                    <h5 style="color: #f8fafc; font-size: 1.1rem; font-weight: 600; margin: 24px 0 12px;">Anatomy of a Cosmic Glitch</h5>
+                                    <p style="margin-bottom: 16px;">
+                                        How does simple optical movement tracking transform a human wave into a hypersonic event? The flaw almost always resides in the interaction between pixel distance, assumed spatial scale, and frame-rate timestamps.
+                                    </p>
+                                    <ol style="margin: 0 0 16px 24px; list-style: decimal;">
+                                        <li style="margin-bottom: 12px;">
+                                            <strong>The Spatial Assumption (The “Dist (Ft)” Trap):</strong> The system relies on a pre-set parameter—in this case, an assumed distance of 20 feet between Line A and Line B. But in a 2D webcam image, depth is an illusion. When your hand passes between two triggers just inches away from the lens, the computer calculates that your hand covered 20 <em>actual physical feet</em> in a fraction of a second.
+                                        </li>
+                                        <li style="margin-bottom: 12px;">
+                                            <strong>Delta Time Shrinkage (Δt → 0):</strong> If the movement triggers Line A and Line B within the same frame cycle or consecutive render loops (e.g., 16 milliseconds at 60 FPS), the measured time interval (Δt) becomes vanishingly small.
+                                        </li>
+                                        <li>
+                                            <strong>The Division Blowup:</strong> Speed is simply distance divided by time (v = d/t). When d is artificially inflated to 20 feet and t approaches zero milliseconds, the fraction explodes exponentially, producing numbers that belong in a NASA telemetry feed rather than a browser console.
+                                        </li>
+                                    </ol>
+
+                                    <h5 style="color: #f8fafc; font-size: 1.1rem; font-weight: 600; margin: 24px 0 12px;">The Math Fix: Grounding the Radar in Reality</h5>
+                                    <p style="margin-bottom: 16px;">
+                                        Fixing spatial hallucinations in optical speed measurement requires bridging pixel dynamics with true physical calibration:
+                                    </p>
+                                    <ul style="margin: 0 0 16px 24px; list-style: disc;">
+                                        <li style="margin-bottom: 12px;">
+                                            <strong>Pixel-to-Foot Scale Matrix:</strong> Instead of assuming a static distance in feet, the algorithm must scale physical distance based on object depth or bounding-box scale (e.g., tracking pixel displacement relative to a known real-world object size).
+                                        </li>
+                                        <li>
+                                            <strong>Frame-Rate Debouncing:</strong> Enforcing a minimum temporal threshold prevents instantaneous double-triggering caused by image noise or simultaneous line-crossing within a single video frame.
+                                        </li>
+                                    </ul>
+
+                                    <h5 style="color: #f8fafc; font-size: 1.1rem; font-weight: 600; margin: 24px 0 12px;">Conclusion</h5>
+                                    <p>
+                                        Building software tools from scratch means embracing these absurd initial outcomes. A speed checker that registers Mach 25 isn't a failure—it's a textbook demonstration of why computer vision models require rigorous spatial normalization before being deployed into the physical world. Until then, hold onto your seat—your hand is officially the fastest moving object in the county!
+                                    </p>
+                                </div>
+                            </details>
+                        </article>
+
                     </div>
                 </section>
 
